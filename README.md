@@ -36,11 +36,17 @@ The root-level Spark file is essentially a database managed by the Spark binary 
 
 But another thing about sparks as well is that they already have time priority encoded into them by the fact that the changes to a spark.json will be saved in its commit history such that it will be possible in the case of a contradiction to determine what spark overrides another, for example, simply by checking when each one of them came to be.
 
-### Stack
+### SPARK types
 
-S stands for Stack. Spark entries of type Stack address the actual stack constituents (the tooling, the dependencies, architecture questions) as question-answer pairs relating to the stack of the project. Ideally the sparks file in a given directory holds stack Q&A pertinent to that directory, but placement does not matter because of the root-level database.
+S is Stack. Spark entries of type Stack address the actual stack constituents (the tooling, the dependencies, architecture questions) as question-answer pairs relating to the stack of the project. Ideally the sparks file in a given directory holds stack Q&A pertinent to that directory, but placement does not matter because of the root-level database.
 
-Meanings of P, A, R, and K come later.
+P is Publication or Productization, also prod, and PR as in public relations. The public-facing surface is what it looks like, who it's for, and why things must be true given them. P works for engineering and knowledge projects alike. P is broad by design.
+
+A is Art, design, and taste, and it is agents' weakest area. Not every project needs it, and there is no ratio rule between entry types.
+
+R is Risks and Rumblings: dependency churn, upstream breaks, competitor and bitter-lesson risk, domain shifts, competitor notes.
+
+K is Knowledge sources, not just an enumeration. One source can carry multiple jobs gracefully, one per QA pair, so agents know which source to query for which task at which moment. That is better than index files.
 
 ### Five or six types of data
 
