@@ -1,3 +1,8 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = []
+# ///
+
 """``_preimage`` is the normative serializer. The id is the last 16 lowercase
 hex characters of SHA-256 over the UTF-8 of that JSON object. The stored id
 is not an input. Strings are not trimmed and not Unicode-normalized.
@@ -141,7 +146,7 @@ def main(argv: list[str]) -> int:
     SparkFileError write ``spark_id: <path>: <message>`` and return 1.
     """
     if len(argv) != 2:
-        sys.stderr.write("spark_id: usage: python3 spark_id.py <spark.json>\n")
+        sys.stderr.write("spark_id: usage: uv run spark_id.py <spark.json>\n")
         return 1
     path = argv[1]
     try:
