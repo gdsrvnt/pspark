@@ -1,4 +1,4 @@
-# pSpark
+# Sparks
 
 > pSpark is a way of engineering the context of a project or a repository in such a fashion that makes the information have three things that current approaches to context management don't have.
 
@@ -34,24 +34,22 @@ pSpark leans on the human practitioner to give clear, unambiguous and confident 
 
 ### 2. Spark encodes context as Question-Answer pairs
 
-Spark makes pieces of context and truths about the project easier to correlate by encoding representing them as QA pairs. Existing context-management paradigms give an agent information, but because the agent does not know what assumptions and beliefs gave it rise, it does not act on it desirably when judgment in correlating facts is required. By representing context as QA pairs, Spark natively binds rules to rationale, decisions to their assumptions, and facts to their relevance.
+Spark makes pieces of context and truths about the project easier to correlate by representing them as QA pairs. Existing context-management paradigms give an agent information, but because the agent does not know what gave it rise, it does not act on it desirably when judgment in correlating facts is required at implantation time. By representing context as QA pairs, Spark natively binds rules to rationale, decisions to their assumptions, and facts to their relevance.
 
 
 ## How Spark works
 
-By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters, and Spark is highly opinionated about what it is that matters. It also makes it easier for the agent to elicit from the human being what it is that matters.
+By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters. Spark is highly opinionated about what it actually is that matters. It also makes it easier for the agent to elicit such things from the user.
 
-### SPARK
+### sparks.json
 
-SPARK refers to information about the context using verbatim question and answer pairs. The question can be a verbatim question asked by an agent or a verbatim question seeded by a human so that the same human can answer it and thereby encode even more human voice into the project.
+Spark files represents context as question and answer pairs. The question can be asked by an agent or seeded by a human to encode even more intent.
 
-### Path and directory do not matter
+sparks.json files in any directory apply globally to a project by default. The user decides if and how to scope them.
 
-The root-level Spark is essentially a database managed by the Spark binary that correlates all Sparks project-wide. This is the mechanism that lets Spark entries work regardless of where they are placed in a project.
+A sparks.json includes any number of entries, json objects with a type of "s", "p", "a", "r", or "k".
 
-Sparks already have time priority data encoded into them by the fact that the changes to a spark.json will be saved in its commit history such that it will be possible in the case of a contradiction to determine what spark overrides another, for example, simply by checking when each one of them came to be. This is optional.
-
-### SPARK types
+### entry types
 
 #### S: Stack
 
