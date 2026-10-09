@@ -1,31 +1,77 @@
-# Spark
+# Spark _(pspark)_
 
-Spark is a way of gathering, maintaining, and structuring context about a project in Q&A pairs. Any directory can have a spark.json file. Each object in spark.json has: a "type" value of "SPARK", a "question" value, an "answer" value, and a unique ID which is a short hash — the last N characters of the object's byte hash — used to connect Sparks idempotently regardless of origin machine, directory, etc. Anywhere in the directory or at the root level, a Spark binary can be placed (its features will be defined later); it gathers meaningful insights using the GraphQL-like database that this way of connecting Sparks allows.
+Question and answer records with ids that any machine can recompute.
 
-This repository scaffolds that file format. The Spark binary's features are not implemented here. There is no GraphQL engine. The notes below are format choices so an id is computable. They are not extra product claims.
+Spark is for a person or an agent who keeps context in a file next to the code. Each record is one question and one answer. The id is the last 16 characters of a SHA-256 hash of one JSON object. That object holds the answer, the question, and the type, with keys in alphabetical order and no extra whitespace. Use Spark when the question and the answer identify the note, and the file may move between directories.
 
-## Format choices
+The repository is named pspark. The format is named Spark. This repository is the remaining copy. The earlier spark repositories were deleted.
 
-N is 16. The hash is SHA-256. The characters are lowercase hexadecimal. The id is the last 16 of those characters.
+## Install
 
-The hashed bytes are the UTF-8 text of one JSON object with the keys answer, question, and type. type is SPARK. The stored id is not one of those bytes. Keys are in alphabetical order, with no extra whitespace. `spark_id.py` is that serializer. Strings are not trimmed. Strings are not Unicode-normalized. The same question and answer on any machine produce the same id.
-
-Recompute the id in `spark.json` with this command.
+Clone the repository.
 
 ```bash
-python3 -c 'import hashlib,json; q="What is Spark?"; a="Spark is a way of gathering, maintaining, and structuring context about a project in Q&A pairs."; p=json.dumps({"answer":a,"question":q,"type":"SPARK"},ensure_ascii=False,sort_keys=True,separators=(",",":")).encode(); print(hashlib.sha256(p).hexdigest()[-16:])'
+git clone https://github.com/gdsrvnt/pspark.git
+cd pspark
 ```
 
-The command prints `107ee97d1abd8e36`.
+### Dependencies
 
-Check a file with `python3 spark_id.py spark.json`. Exit code 0 and no output means every stored id matches the rule. `spark.schema.json` checks the shape of the array. It does not restate the hash.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/). uv installs a Python interpreter that satisfies the `requires-python` line in `spark_id.py`.
 
-## How ids connect
+## Usage
 
-Equal ids are the same Spark, whatever the machine or the directory. `connect` in `spark_id.py` unions records that are already loaded. It does not read a directory and it is not a query. Array order is not identity. The same id with the same question and answer is one Spark. The same id with a different question or answer is an error.
+### CLI
 
-## The binary
+From the repository root, check that every stored id matches its question and answer.
 
-`bin/spark` is a placeholder. It exits 0, writes nothing, and has no features. A later Spark binary may sit in a directory or at that directory's root. This repository does not define what that binary does.
+```bash
+uv run spark_id.py spark.json
+```
 
-`SKILL.md` is an agent skill that also uses the name SPARK. That file is not a spark.json record. Its five headings are not fields on a Spark. This scaffold does not change `SKILL.md`.
+Exit code 0 and no output means the file matches. The sample record id is `107ee97d1abd8e36`.
+
+Check `spark.json` against `spark.schema.json`.
+
+```bash
+uvx check-jsonschema --schemafile spark.schema.json spark.json
+```
+
+Run the placeholder binary. It exits 0 and writes nothing.
+
+```bash
+bin/spark
+```
+
+## Format
+
+`spark.json` is a JSON array. Each object has four keys.
+
+| Key | Rule |
+| --- | --- |
+| `type` | The string `SPARK` |
+| `question` | A string |
+| `answer` | A string |
+| `id` | 16 lowercase hexadecimal characters |
+
+`spark_id.py` hashes `question` and `answer` only. It writes one JSON object with the keys `answer`, `question`, and `type`, in alphabetical order, with no extra whitespace. The bytes are UTF-8. `spark_id.py` does not trim strings, and it does not apply Unicode normalization. The `id` is the last 16 characters of the SHA-256 hexadecimal digest. The stored id is not one of the hashed bytes.
+
+The same question and answer produce the same id on every machine. `connect` in `spark_id.py` unions records that `load` already returned. It does not walk a directory. The same id with a different question or answer is an error.
+
+`spark.schema.json` checks the array shape. The hash check stays in `spark_id.py`. The schema `$id` is `https://raw.githubusercontent.com/gdsrvnt/pspark/main/spark.schema.json`.
+
+`bin/spark` is a placeholder. It has no features.
+
+`SKILL.md` is an agent skill that uses the name SPARK. That file is not a `spark.json` record.
+
+## Contributing
+
+Questions go to [GitHub issues](https://github.com/gdsrvnt/pspark/issues). Pull requests are accepted.
+
+Before you open a pull request, run both checks in Usage. When a record fails, fix the record. When the id rule changes, change `spark_id.py` in the same pull request.
+
+## License
+
+License: not yet chosen.
+
+The SPDX license identifier is UNLICENSED. No license owner is named.
