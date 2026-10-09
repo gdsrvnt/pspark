@@ -4,82 +4,73 @@
 
 ## Background
 
-The point of pSpark is to improve context engineering in three ways that no existing paradigm achieve.
+The point of pSpark is to improve context engineering in three ways that no existing paradigm achieves.
 
 ### Human prose is primary
 
 #### User and human prose
 
-I believe that there's a lot of reasoning and a lot of art and a lot of craft encoded in the prose of highly technical or highly skilled humans, and the more of this prose exists in the context window of an agent working on any task, the better the agent adheres to desired behaviors in the life of the project.
+There's a lot of craft encoded in the prose of highly technical or skilled humans, and the more of this voice exists in the context window of an agent working on any task, the better the agent adheres to desired behaviors.
 
-One of the shortcomings of current approaches to context management is that the sources of context that are created, whether they are AGENTS.md files or some other kind of knowledge store or even documentation that's written by an agent, is not written in the prose of the engineers and practitioners who commissioned the creation of such documents by agents. I believe that this is quite degenerate because a human being passes context to agents in the form of verbatim prose. That verbatim prose is then compiled into context files by an agent, which is necessarily a lossy process for a couple of reasons.
+One of the shortcomings of current approaches to context management is that the sources of context that, whether they are AGENTS.md files, some other kind of knowledge store, or even documentation, is not written by the engineers who commissioned the creation of such documents by agents. This is degenerate; because a human being passes understanding to agents in the form of prose which is then compiled into context files by an agent. This process is doubly lossy:
 
 1. Summarization and paraphrasing are always lossy.
-2. The particular things that will be lost in terms of nuance and why things are the way they are, not just what things are, and also the assumptions that begot a lot of the assertions in these context files are typically not preserved by agents because agents seem not to care about how things got to where they are as much as they care about how things are.
 
-However, understanding how things came to be the way that they are is important for projecting current understandings to future action and to helping make decisions.
+2. The assumptions and understandings underpinning the assertions themselves are typically not preserved by agents when creating or maintaining docs because *agents care more about what us than how it became*.
 
-This marries the first two ways pSpark aims to solve this.
+This is problematic because the same state in two projects, if a change needs to be made, are not treated the same by each team if the paths to that same state were radically different.
 
-1. pSpark is verbatim driven.
+> Undeestanding how things came to be the way that they are is important for projecting current truth onto to future action.
 
-It demands more of the user than any other context management framework. The reason for this is that pSpark persists context as user prose, whether out of written session transcripts or out of voice session transcripts over calls. The prose itself is elicited out of the user by specific means or later mined from transcripts. pSpark leans on the human practitioner to give clear, well-cited, and well-grounded prose such so that the agents that use that very prose as verbatim comply better. This also fits the paradigm that agents tend to copy the conventions and approach and quality when working in a code base of the surrounding code. If we want the agents to behave more like us, then we must surround them with more verbatim prose from the engineers.
+Spark addresses this in 2 ways.
 
-### Question answer pairs
+### 1. Spark is verbatim-driven
 
-pSpark makes pieces of context and truths about the project easier to correlate by encoding them or structuring them as question answer pairs. One of the shortcomings of context and agents in general is that they are not quite good at multi-hop reasoning and also tend to fail when needing to think beyond the surface level of a certain assertion. A lot of times, the existing paradigms of context will give an agent information, but because the agent does not know what assumptions and what beliefs gave rise to that piece of information, it does not know how to act on it, and also has a hard time judging the importance of one piece of context against another.
+The verbatim prose of a human being is an asset. pSpark persists context as user prose, whether out of written session transcripts or voice session transcripts over calls. The prose itself is elicited out of the user by specific means or mined  from transcripts and discussed cooperatively. 
 
-For example, an AGENTS.md may have a line about CI exceptions when it comes to certain modules not passing the lint tests. That is something that's ephemeral that tends to be only an update to the linter and does not matter as much as, for example, excluding certain types of internal data from a public project. Think about the way that X, which has open sourced their algorithm, for example. There's no doubt that behind the scenes, there are many pieces of proprietary information and data to which this open source project that they made connects. Without a doubt, there are many rules and safeguards in place to make sure that this information does not leak and cannot be reverse engineered by proxy in whatever way.
+pSpark leans on the human practitioner to give clear, unambiguous and confident statements about the project. In so doing, *it demands more of the user than any other framework*.
 
-That brings me to the third thing that pSpark makes to the table.
+> Agents tend to copy the conventions, rigor, and semantics of surrounding code when working in code. Since they think in *prose*, surround them with yours.
 
-1. It brings to the table human prose, and it's human prose primary.
-2. It makes pieces of context easier to correlate by grouping them into types and structuring them as question answer pairs.
+### 2. Spark encodes context as Question-Answer pairs
 
-Question answer pairs bring quite a number of things to the table.
+Spark makes pieces of context and truths about the project easier to correlate by encoding representing them as QA pairs. Existing context-management paradigms give an agent information, but because the agent does not know what assumptions and beliefs gave it rise, it does not act on it desirably when judgment in correlating facts is required. By representing context as QA pairs, Spark natively binds rules to rationale, decisions to their assumptions, and facts to their relevance.
 
-1. Assumptions and how assumptions typically underpin decisions, and yet not knowing the assumptions that underpin a decision can cause an agent or a human working in a code base to undermine a decision or propose a change to a decision unwisely because they don't know why it is that this decision exists.
-2. This isn't just true for assumptions, but also presupposition.
-3. By framing context as QA pairs, it becomes possible to then encode assumptions and facts as presuppositions of the question, which semantically strengthens them such that when an agent is reviewing those questions, it will take what needs to be ground truths, which are unshakeable as such, and then treat as malleable the content of the answer.
-4. By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters, and pSpark is highly opinionated about what it is that matters, and it also makes it easier to get onto the same page about what matters, and it makes it easier for the agent to elicit from the human being what it is that matters.
-5. It also makes it easier to identify gaps when it becomes blatantly clear what questions context leaves unanswered in light or by contrast of what questions it does bother to answer.
-6. It makes each entry in a Spark more rich because there's two quite different types of prose that are paired together, and in the context of those pairs or in the contrast of those pairs, the assumption is that the meaning will rise.
+
+## How Spark works
+
+By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters, and Spark is highly opinionated about what it is that matters. It also makes it easier for the agent to elicit from the human being what it is that matters.
 
 ### SPARK
 
-SPARK refers to information about the context using verbatim question and answer pairs. The question can be a verbatim question asked by an agent or a verbatim question by a human so that the same human can answer it and thereby encode even more verbatim context into the project.
+SPARK refers to information about the context using verbatim question and answer pairs. The question can be a verbatim question asked by an agent or a verbatim question seeded by a human so that the same human can answer it and thereby encode even more human voice into the project.
 
 ### Path and directory do not matter
 
-The last thing that pSpark does is it makes context files path and directory agnostic, which matters quite a bit, but the idea is for every subdirectory of a code base to optionally have a spark.json or a sparks.json. This file will essentially have an array of JSON objects. All of them have the same primacy regardless of where they live. In the root of the directory, pSpark will offer multiple options to work with the sparks.
+The root-level Spark is essentially a database managed by the Spark binary that correlates all Sparks project-wide. This is the mechanism that lets Spark entries work regardless of where they are placed in a project.
 
-The root-level Spark file is essentially a database managed by the Spark binary that correlates all Sparks project-wide. This is the mechanism that lets Spark entries work regardless of where they are placed in a project.
-
-But another thing about sparks as well is that they already have time priority encoded into them by the fact that the changes to a spark.json will be saved in its commit history such that it will be possible in the case of a contradiction to determine what spark overrides another, for example, simply by checking when each one of them came to be.
+Sparks already have time priority data encoded into them by the fact that the changes to a spark.json will be saved in its commit history such that it will be possible in the case of a contradiction to determine what spark overrides another, for example, simply by checking when each one of them came to be. This is optional.
 
 ### SPARK types
 
-I'm not sure if I'm gonna use .json, .toml, or .html for Spark's files. But, regardless, the S, the P, the A, the R, and the K are already locked in. As for the P at the start, I've decided that there's not gonna be a P at the start. We're gonna rename this repository later, but for now you can leave it named as pSpark.
-
 #### S: Stack
 
-The S stands for stack, and Spark entries of type S address the actual stack constituents, the tooling, the dependencies, the answer architecture questions. They're question answer pairs relating to the stack of the project. Ideally, in a given directory, the sparks .html or .json or .toml, the sparks file in general, should hold question answer pairs that pertain to stack question in that particular directory. However, one of the main points of Sparks is that it doesn't matter where you put them in a project, they work. That is gonna be facilitated by the root level Spark file, which is essentially a database managed by the Spark binary that correlates all of the Sparks project-wide.
+The S stands for stack, and Spark entries of type S address the actual stack constituents, the tooling, the dependencies; they answer architecture questions too. They're question answer pairs relating to the stack of the project. Ideally, in a given directory, the sparks .json, the sparks file should hold question answer pairs that pertain to stack questions in that particular directory. Again, optional.
 
-#### P: Publication or productization
 
-The P stands for publication or productization, and it can be thought of as either of them. This type of Spark entry deals with production. You can think of it as prod. The prod shape. What does prod look like for this project? And what things matter for prod? The interesting thing about Spark is that it works for software engineering projects as well as it works for knowledge work projects. For example, if you're using Spark to manage the context of a repository that you are using as your workspace for writing a book, for instance, then productization, publication, and production answers. It'll be all of them. It answers questions about the face or the surface of the project that faces the world, meaning what is it supposed to look like? What is it supposed to be interpreted as? Who is gonna be using it in production? Who is it made for? Why is it that certain things should be true in light of who it is that it's made for? For example, in a project in which a user might be working on their resume, the type of job that they're applying to and the shareholders in the real world or the viewers and consumers of the resume in the real world and what they probably like would be encoded in there. That's project, publication, and productization. It also answers questions like how does this particular project move the commuter's agenda or meet the creator's goals? It can be quite broad and we don't want to constrain people's usage of their own Spark that much. The point of Spark is to give both agents and human beings a breadcrumb trail on what types and classes of questions should be answered in a project so that one can have good context. You can think about it as questions pertaining to the public facing side of the project. Even P, PR in terms of public relations, not PR as in pull request, is also an appropriate interpretation of the P.
+#### P: Productization
 
-#### A: Art, design, and taste
+How is this packaged, branded, presented and shipped? Why, when, who, where <all of those things>?
 
-As for the A, the A is art, design, and taste. That's fairly straightforward. This is one of the most important question types, cause it's one of the things that agents are worst at. Visual art, design, and taste are not going to be pertinent to every project, but even for backend heavy projects, for example, or something like creating NPM packages such as run report, which we recently created, the taste of the user as a developer could be encoded in A. But it's only natural that depending on the type of project, different types of SPARK entries will be differentially relevant. And there's no rule saying that some ratio must be respected in how many of each SPARK entry type are in a project.
+#### A: Art and design
+
+Facts about the sensory footprint of the project.
 
 #### R: Risks and rumblings
 
-R is risks and rumblings. There are two things here.
+In an ever-changing world, every project is at some risk.
 
-1. In an ever-changing world, every project is at some risk, whether it's dependency churn or breaking changes to upstream if the project is a fork, or for example, similar projects by larger players who put the product owner at bitter lesson risk.
-
-And these are some examples, but R is questions pertaining to how the ever-changing nature of the world has implications on the project. Whereas other contingencies can live inside of entries like this as well. And this is where rumors and rumblings come in. If, for example, I was working on an open source version of TypeSafe AI's Jev model, then something appropriate to put in this field would be some notes about what other competitors are doing. But it's also a good place to put questions about changes and developments in the domain of the project that might have some implication on the project lifecycle.
+R is questions pertaining to how the ever-changingness of the world has implications on the project. If, for example, I was working on an open source version of TypeSafe AI's Jev model, then something appropriate to put in this field would be some notes about what other competitors are doing. But it's also a good place to put questions about changes and developments in the domain of the project that might have some implication on the project lifecycle.
 
 #### K: Knowledge sources
 
