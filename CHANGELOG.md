@@ -13,5 +13,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `spark.schema.json`, which checks the shape of the array.
 - `bin/spark`, a placeholder that exits 0 and writes nothing.
 - `SKILL.md`, an agent framing skill that also uses the name SPARK.
-- Learning playbooks under `.cursor/skills/pspark`.
+- Learning playbooks under `.cursor/skills/spark`.
 - A GitHub Actions workflow that checks ids and the schema on push and on pull request.

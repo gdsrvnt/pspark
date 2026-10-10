@@ -22,7 +22,7 @@ reminder: Learning turn? Playbook match -> apply /study. Casual turn or user opt
 
 ## Playbooks
 
-Playbooks live in `.cursor/skills/pspark/playbooks/`. Match the learner's moment to a playbook below and open its file. Open a todolist whose first items are that playbook's "How to play the role" steps, copied in verbatim, before any task-specific todos. A step you choose not to do stays in the list with a one-line `skip: <reason>`.
+Playbooks live in `.cursor/skills/spark/playbooks/`. Match the learner's moment to a playbook below and open its file. Open a todolist whose first items are that playbook's "How to play the role" steps, copied in verbatim, before any task-specific todos. A step you choose not to do stays in the list with a one-line `skip: <reason>`.
 
 When the moment is unclear, route in this order. Goal or level unknown goes to Interviewer. Goal known but no plan goes to Mapmaker. Then pick by moment from the list.
 

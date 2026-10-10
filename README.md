@@ -1,10 +1,10 @@
 # Sparks
 
-> pSpark is a way of engineering the context of a project or a repository in such a fashion that makes the information have three things that current approaches to context management don't have.
+> Spark is a way of engineering the context of a project or a repository in such a fashion that makes the information have three things that current approaches to context management don't have.
 
 ## Background
 
-The point of pSpark is to improve context engineering in three ways that no existing paradigm achieves.
+The point of Spark is to improve context engineering in three ways that no existing paradigm achieves.
 
 ### Human prose is primary
 
@@ -12,23 +12,23 @@ The point of pSpark is to improve context engineering in three ways that no exis
 
 There's a lot of craft encoded in the prose of highly technical or skilled humans, and the more of this voice exists in the context window of an agent working on any task, the better the agent adheres to desired behaviors.
 
-One of the shortcomings of current approaches to context management is that the sources of context that, whether they are AGENTS.md files, some other kind of knowledge store, or even documentation, is not written by the engineers who commissioned the creation of such documents by agents. This is degenerate; because a human being passes understanding to agents in the form of prose which is then compiled into context files by an agent. This process is doubly lossy:
+One of the shortcomings of current approaches to context management is that the sources of context that are created, whether they are AGENTS.md files, some other kind of knowledge store, or even documentation, is not written by the engineers who commissioned the creation of such documents by agents. This is degenerate; because a human being passes understanding to agents in the form of prose which is then compiled into context files by an agent. This process is doubly lossy:
 
 1. Summarization and paraphrasing are always lossy.
 
-2. The assumptions and understandings underpinning the assertions themselves are typically not preserved by agents when creating or maintaining docs because *agents care more about what us than how it became*.
+2. The assumptions and understandings underpinning the assertions themselves are typically not preserved by agents when creating or maintaining docs because *agents care more about what is than how it became*.
 
 This is problematic because the same state in two projects, if a change needs to be made, are not treated the same by each team if the paths to that same state were radically different.
 
-> Undeestanding how things came to be the way that they are is important for projecting current truth onto to future action.
+> Understanding how things came to be the way that they are is important for projecting current truth onto future action.
 
 Spark addresses this in 2 ways.
 
 ### 1. Spark is verbatim-driven
 
-The verbatim prose of a human being is an asset. pSpark persists context as user prose, whether out of written session transcripts or voice session transcripts over calls. The prose itself is elicited out of the user by specific means or mined  from transcripts and discussed cooperatively. 
+The verbatim prose of a human being is an asset. Spark persists context as user prose, whether out of written session transcripts or voice session transcripts over calls. The prose itself is elicited out of the user by specific means or mined  from transcripts and discussed cooperatively. 
 
-pSpark leans on the human practitioner to give clear, unambiguous and confident statements about the project. In so doing, *it demands more of the user than any other framework*.
+Spark leans on the human practitioner to give clear, unambiguous and confident statements about the project. In so doing, *it demands more of the user than any other framework*.
 
 > Agents tend to copy the conventions, rigor, and semantics of surrounding code when working in code. Since they think in *prose*, surround them with yours.
 
@@ -43,7 +43,7 @@ By grouping context into categories and question answer pairs, it makes it easie
 
 ### sparks.json
 
-Spark files represents context as question and answer pairs. The question can be asked by an agent or seeded by a human to encode even more intent.
+Spark files represent context as question and answer pairs. The question can be asked by an agent or seeded by a human to encode even more intent.
 
 sparks.json files in any directory apply globally to a project by default. The user decides if and how to scope them.
 
@@ -83,8 +83,8 @@ Spark also helps to keep a project on the rails because it unironically does enc
 Clone the repository.
 
 ```bash
-git clone https://github.com/gdsrvnt/pspark.git
-cd pspark
+git clone https://github.com/gdsrvnt/spark.git
+cd spark
 ```
 
 ### Dependencies
@@ -119,7 +119,7 @@ The id rules and the `bin/spark` placeholder are in [Format](docs/format.md).
 
 ## Contributing
 
-Questions go to [GitHub issues](https://github.com/gdsrvnt/pspark/issues). Pull requests are accepted.
+Questions go to [GitHub issues](https://github.com/gdsrvnt/spark/issues). Pull requests are accepted.
 
 Before you open a pull request, run both checks in Usage. When a record fails, fix the record. When the id rule changes, change `spark_id.py` in the same pull request.
 
