@@ -1,8 +1,8 @@
 ---
-name: pspark
+name: spark
 description: use this when someone (a person, or an agent being taught) is learning a subject or skill and you need to pick which learning role to play
 ---
-# pspark
+# spark
 
 This is the P-SPARK project skill. The P stands for Principles (decided 2026-10-07, recorded in gdsrvnt/mission-godservant `docs/decisions.md`); these playbooks are teaching principles, because the job of P-SPARK is teaching agents context.
 
