@@ -18,6 +18,8 @@ One of the shortcomings of current approaches to context management is that the 
 
 2. The assumptions and understandings underpinning the assertions themselves are typically not preserved by agents when creating or maintaining docs because *agents care more about what is than how it became*.
 
+   and thus, even if the human practitioner encodes the rationale for certain facts into their communication of those facts to an agent, the agent typically strips them from the final product, and because it is rare that humans review that final project, since they instead prefer to rely on their skills, framework, model, harness, and workflow, those facts are not only lost, but worse yet, it is rarely detected that the facts are lost until it is too late. Then invariably, the human comes back, and the model makes an error, or some other agent makes an error further down the line, and wonders why it is that the agent did not behave in the desirable fashion.
+
 This is problematic because the same state in two projects, if a change needs to be made, are not treated the same by each team if the paths to that same state were radically different.
 
 > Understanding how things came to be the way that they are is important for projecting current truth onto future action.
