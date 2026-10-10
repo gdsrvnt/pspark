@@ -39,6 +39,12 @@ Spark leans on the human practitioner to give clear, unambiguous and confident s
 Spark makes pieces of context and truths about the project easier to correlate by representing them as QA pairs. Existing context-management paradigms give an agent information, but because the agent does not know what gave it rise, it does not act on it desirably when judgment in correlating facts is required at implementation time. By representing context as QA pairs, Spark natively binds rules to rationale, decisions to their assumptions, and facts to their relevance.
 
 
+## Why use Spark
+
+Reason number one. Most excitingly, Spark presents a new way to scale the performance of agents regardless of their harness, organization-wide or for the totality of an individual user's workflows. The reason for this is that Spark allows any person or organization to build a moat of skill that is not easily acquired by other entities and only compounds into improved model performance in any application, in any project. The new access that Spark unlocks is indeed the aspect of eloquence itself.
+
+Spark unlocks the capacity to build the moats and out-competes rivals along an axis that has hitherto been unharnessed.
+
 ## How Spark works
 
 By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters. Spark is highly opinionated about what it is that matters. It also makes it easier for the agent to elicit such things from the user.
