@@ -39,7 +39,7 @@ Spark makes pieces of context and truths about the project easier to correlate b
 
 ## How Spark works
 
-By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters. Spark is highly opinionated about what it actually is that matters. It also makes it easier for the agent to elicit such things from the user.
+By grouping context into categories and question answer pairs, it makes it easier for the agent to determine what matters. Spark is highly opinionated about what it is that matters. It also makes it easier for the agent to elicit such things from the user.
 
 ### sparks.json
 
